@@ -69,6 +69,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Custom Scrollbar */
@@ -1228,4 +1230,17 @@ section {
 
 .skill-card {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+#a-propos .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Grille interne pour les 4 cartes de compétences */
+#a-propos .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
