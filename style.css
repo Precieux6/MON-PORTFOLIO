@@ -1428,3 +1428,81 @@ section {
     padding: 0 1.25rem; /* Marges latérales propres sur mobile */
   }
 }
+/* ========================================================== */
+/* CORRECTIF GLOBAL RESPONSIF POUR TOUTES LES SECTIONS DU SITE */
+/* ========================================================== */
+
+/* S'assure que toutes les sections et conteneurs prennent toute la largeur disponible */
+section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 80px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Grille À Propos : 2 colonnes égales sur PC */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Grille Services / Méthodologie : 3 colonnes sur PC */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Grille Contact : Texte à gauche, Formulaire à droite */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Évite que les textes ne s'étirent en colonnes étroites */
+p, h1, h2, h3, h4 {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- ADAPTATION TABLETTES & MOBILES (GLOBAL) --- */
+@media (max-width: 1024px) {
+  .about-grid, 
+  .contact-grid {
+    grid-template-columns: 1fr; /* Passage en une seule colonne empilée */
+    gap: 2.5rem;
+  }
+  
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .services-list,
+  .skills-grid {
+    grid-template-columns: 1fr !important; /* Tout passe en 1 colonne sur mobile */
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+}
