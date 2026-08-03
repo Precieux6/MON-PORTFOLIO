@@ -609,6 +609,20 @@ section {
     padding: 1.5rem;
   }
 }
+/* --- CORRECTIF ESPACEMENT TITRE & BADGE CARTE PROJET --- */
+.project-card h3,
+.project-card h4,
+.project-card .project-title {
+  margin-top: 1.5rem !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+.project-card .badge,
+.project-card span.badge {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
 /* --- CORRECTIF AFFICHAGE CARTES DE PROJETS --- */
 .project-card {
   display: flex;
