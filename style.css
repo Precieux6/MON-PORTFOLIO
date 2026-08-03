@@ -41,8 +41,8 @@ body {
   line-height: 1.6;
 }
 
-/* Background elements */
-.ambient-glow-1 {
+/* Éléments d'arrière-plan */
+.lueur-ambiante-1 {
   position: absolute;
   top: -10%;
   left: -10%;
@@ -53,7 +53,7 @@ body {
   pointer-events: none;
 }
 
-.ambient-glow-2 {
+.lueur-ambiante-2 {
   position: absolute;
   top: 60%;
   right: -10%;
