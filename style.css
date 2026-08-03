@@ -1373,3 +1373,58 @@ section {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
+/* --- CORRECTION DÉFINITIVE DE LA SECTION À PROPOS & RESPONSIVE --- */
+
+/* Conteneur global de la section À propos */
+#a-propos .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Grille principale : Texte à gauche (1fr), Cartes de compétences à droite (1fr) sur PC */
+#a-propos .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+/* Bloc texte pour éviter qu'il ne s'étire en longueur de manière anormale */
+#a-propos .about-text {
+  width: 100%;
+  max-width: 100%;
+}
+
+#a-propos .about-text p {
+  width: 100%;
+  line-height: 1.7;
+}
+
+/* Grille interne des 4 cartes de compétences (2 colonnes / 2 lignes) */
+#a-propos .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* --- RESPONSIVE MOBILE ET TABLETTE --- */
+@media (max-width: 1024px) {
+  #a-propos .about-grid {
+    grid-template-columns: 1fr; /* Passage en une seule colonne empilée sur tablette et mobile */
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #a-propos .skills-grid {
+    grid-template-columns: 1fr; /* Les cartes de compétences passent en 1 seule colonne sur mobile pour respirer */
+  }
+  
+  .container {
+    padding: 0 1.25rem; /* Marges latérales propres sur mobile */
+  }
+}
