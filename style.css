@@ -609,7 +609,7 @@ section {
     padding: 1.5rem;
   }
 }
-/* --- CORRECTIF GLOBAL PROJETS --- */
+/* --- CORRECTIF DEFINITIF AFFICHAGE CARTES & IMAGES --- */
 .project-card {
   display: flex !important;
   flex-direction: column !important;
@@ -622,7 +622,6 @@ section {
   box-sizing: border-box !important;
 }
 
-/* Espacement et visibilité du titre et des textes */
 .project-card h3,
 .project-card h4,
 .project-card .project-title {
@@ -640,15 +639,18 @@ section {
   display: block !important;
 }
 
-/* Forcer l'affichage correct des images ou aperçus dans les cartes */
+/* Forcer l'affichage de toutes les images, bannières et conteneurs visuels */
 .project-card img, 
-.project-image-container {
+.project-image, 
+.project-img, 
+.project-card [class*="image"],
+.project-card [class*="img"] {
   width: 100% !important;
   height: 200px !important;
   object-fit: cover !important;
   border-radius: 12px !important;
   display: block !important;
-  margin-top: auto !important;
+  margin-top: 1rem !important;
 }
 /* --- CORRECTIF ESPACEMENT TITRE & BADGE CARTE PROJET --- */
 .project-card h3,
