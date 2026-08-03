@@ -89,6 +89,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach(section => sectionObserver.observe(section));
 
+  // 2b. PROJECTS CAROUSEL - LEFT-RIGHT SCROLL EFFECT
+  const projectsCarousel = document.getElementById("projects-carousel");
+  
+  if (projectsCarousel) {
+    let isScrolling = false;
+    
+    const handleCarouselScroll = () => {
+      if (isScrolling) return;
+      isScrolling = true;
+      
+      setTimeout(() => {
+        isScrolling = false;
+      }, 100);
+      
+      // Optional: Add scroll progress indicator if needed
+      const scrollPercentage = 
+        (projectsCarousel.scrollLeft / 
+        (projectsCarousel.scrollWidth - projectsCarousel.clientWidth)) * 100;
+      
+      // Log for debugging (remove in production)
+      // console.log("Projects scroll: " + scrollPercentage.toFixed(0) + "%");
+    };
+    
+    projectsCarousel.addEventListener("scroll", handleCarouselScroll, { passive: true });
+    
+    // Add keyboard navigation for accessibility
+    document.querySelectorAll(".project-card").forEach((card, index) => {
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" && index < document.querySelectorAll(".project-card").length - 1) {
+          document.querySelectorAll(".project-card")[index + 1].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+        }
+        if (e.key === "ArrowLeft" && index > 0) {
+          document.querySelectorAll(".project-card")[index - 1].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+        }
+      });
+    });
+  }
+
   // 3. Scroll Reveal Animations
   const revealElements = document.querySelectorAll(".scroll-reveal");
   const revealObserverOptions = {
@@ -227,20 +265,65 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
   const skillsCards = document.querySelectorAll(".skill-card");
+  const skillsSection = document.getElementById("a-propos");
 
+  if (skillsSection && skillsCards.length > 0) {
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionTop = skillsSection.offsetTop;
+          const currentScroll = window.scrollY;
+          const isScrollingDown = currentScroll > lastScrollTop;
+
+          skillsCards.forEach((card, index) => {
+            // Stagger animation for each card
+            const delay = index * 100;
+            
+            if (isScrollingDown) {
+              // Scroll DOWN → Slide UP with animation
+              setTimeout(() => {
+                card.classList.remove("scroll-down");
+                card.classList.add("scroll-up");
+                card.classList.add("active");
+              }, delay);
+            } else {
+              // Scroll UP → Slide DOWN with animation
+              setTimeout(() => {
+                card.classList.remove("scroll-up");
+                card.classList.add("scroll-down");
+                card.classList.add("active");
+              }, delay);
+            }
+            
+            // Parallax effect
+            let speed = (index % 2 === 0) ? 8 : -8;
+            card.style.transform = `translateY(${isScrollingDown ? speed : -speed}px)`;
+          });
+
+          lastScrollTop = currentScroll;
+        }
+      });
+    }, { threshold: 0.5 });
+
+    skillsObserver.observe(skillsSection);
+  }
+
+  // Fallback: Simple scroll parallax for older browsers
   window.addEventListener("scroll", () => {
     let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
     let scrollDirection = currentScrollTop > lastScrollTop ? "down" : "up";
 
-    skillsCards.forEach((card, index) => {
-      let speed = (index % 2 === 0) ? 12 : -12;
-      if (scrollDirection === "down") {
-        card.style.transform = `translateY(${speed}px)`;
-      } else {
-        card.style.transform = `translateY(${-speed}px)`;
-      }
-    });
+    if (skillsCards.length > 0 && !skillsSection) {
+      skillsCards.forEach((card, index) => {
+        let speed = (index % 2 === 0) ? 8 : -8;
+        if (scrollDirection === "down") {
+          card.style.transform = `translateY(${speed}px)`;
+        } else {
+          card.style.transform = `translateY(${-speed}px)`;
+        }
+      });
 
-    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    }
   }, { passive: true });
 });
