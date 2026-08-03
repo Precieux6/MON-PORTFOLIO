@@ -223,3 +223,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+// --- EFFETS DYNAMIQUES AU SCROLL (COMPÉTENCES) ---
+document.addEventListener("DOMContentLoaded", () => {
+  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const skillsCards = document.querySelectorAll(".skill-card");
+
+  window.addEventListener("scroll", () => {
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let scrollDirection = currentScrollTop > lastScrollTop ? "down" : "up";
+
+    skillsCards.forEach((card, index) => {
+      let speed = (index % 2 === 0) ? 12 : -12;
+      if (scrollDirection === "down") {
+        card.style.transform = `translateY(${speed}px)`;
+      } else {
+        card.style.transform = `translateY(${-speed}px)`;
+      }
+    });
+
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+  }, { passive: true });
+});
