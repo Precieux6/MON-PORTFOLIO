@@ -839,3 +839,17 @@ img, svg {
   height: auto;
   display: block;
 }
+/* Corrections de structure et d'espacement post-inspection */
+section {
+  padding: 4rem 0; /* Assure un espacement vertical harmonieux entre les sections */
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-meta-section h4 {
+  margin-bottom: 0.75rem; /* Évite que le titre "Compétences Clés" soit trop collé aux tags */
+}
