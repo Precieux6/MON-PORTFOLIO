@@ -658,3 +658,41 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* --- CORRECTIF URGENT : TAILLE DES IMAGES ET ICONES --- */
+
+/* 1. Réduire et maîtriser la carte de profil dans le Hero */
+.hero-visual .profile-card {
+  max-width: 340px !important;
+  padding: 1.8rem !important;
+}
+
+.hero-visual .profile-card img,
+.hero-visual img {
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+}
+
+/* 2. Neutraliser l'explosion des icônes géantes dans "À propos" et "Services" */
+section img, 
+.about-grid img, 
+.services-grid img, 
+.skill-category img {
+  max-width: 60px !important;
+  max-height: 60px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
+/* 3. S'assurer que les conteneurs d'illustrations ne débordent pas */
+.about-visual, 
+.service-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+}
