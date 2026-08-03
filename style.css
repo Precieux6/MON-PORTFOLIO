@@ -853,3 +853,10 @@ img, svg {
 .modal-meta-section h4 {
   margin-bottom: 0.75rem; /* Évite que le titre "Compétences Clés" soit trop collé aux tags */
 }
+
+/* Correction pour le défilement horizontal de la section projets sur grand écran */
+@media (min-width: 769px) {
+    .projects-grid > * {
+        flex: 0 0 380px; /* Empêche les cartes de rétrécir et leur donne une largeur fixe idéale */
+    }
+}
