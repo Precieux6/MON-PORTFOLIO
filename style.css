@@ -827,3 +827,15 @@ footer {
     overflow-x: visible;
   }
 }
+/* Ajuster l'espacement vertical des sections pour éviter les vides géants */
+section {
+  position: relative;
+  padding: 5rem 0; /* Réduit de 8rem à 5rem pour un meilleur équilibre visuel */
+}
+
+/* Sécurité globale sur les images et les icônes SVG pour qu'elles ne dépassent jamais */
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
