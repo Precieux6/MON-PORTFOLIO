@@ -1161,3 +1161,71 @@ footer {
     font-size: 2.2rem;
   }
 }
+/* --- CORRECTIFS RESPONSIFS & MISE EN PAGE --- */
+section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Adaptation pour Tablettes (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .services-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Adaptation pour Mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .skills-grid, .services-list {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* --- EFFETS VISUELS & DÉFILEMENT --- */
+@media (min-width: 769px) {
+  .projects-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    scrollbar-width: thin;
+  }
+  .projects-grid .project-card {
+    min-width: 350px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}
+
+.skill-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
