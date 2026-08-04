@@ -1304,20 +1304,20 @@ footer {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN (Tablettes & Mobiles)
+   CONCEPTION RESPONSIVE (Tablettes & Mobiles)
    ========================================= */
 
 /* Tablettes : Passage de 4 à 2 colonnes */
 @media screen and (max-width: 1100px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 /* Mobiles : Passage à 1 seule colonne pour un affichage vertical fluide */
 @media screen and (max-width: 600px) {
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     padding: 0.5rem;
   }
   
