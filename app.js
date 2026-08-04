@@ -267,7 +267,59 @@ function initScrollReveal() {
 
   revealElements.forEach(el => revealObserver.observe(el));
 }
+// --- MODULE 5: CONTACT FORM ---
+function initContactForm() {
+    const contactForm = document.getElementById("portfolio-contact-form");
 
+    if (!contactForm) return;
+
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById("btn-submit-form");
+        const statusMessage = document.getElementById("form-status-message");
+        const originalText = submitBtn.innerHTML;
+
+        const formData = {
+            name: document.getElementById("form-name").value,
+            email: document.getElementById("form-email").value,
+            subject: document.getElementById("form-subject").value,
+            message: document.getElementById("form-message").value
+        };
+
+        try {
+            submitBtn.innerHTML = "Envoi en cours...";
+            submitBtn.disabled = true;
+
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            console.log("📦 Formulaire simulé:", formData);
+
+            submitBtn.innerHTML = "Message envoyé avec succès !";
+            submitBtn.style.background = "var(--accent-green)";
+            submitBtn.style.color = "#fff";
+            contactForm.reset();
+
+            statusMessage.textContent = "✓ Merci ! Votre message a été envoyé. Je vous contacte bientôt.";
+            statusMessage.classList.add("success");
+            statusMessage.classList.remove("error");
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = "";
+                submitBtn.style.color = "";
+                submitBtn.disabled = false;
+                statusMessage.textContent = "";
+                statusMessage.classList.remove("success");
+            }, 3000);
+
+        } catch (error) {
+            console.error("Erreur:", error);
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
     } catch (error) {
       console.error("Erreur lors de l'envoi du formulaire:", error);
       
