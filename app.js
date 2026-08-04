@@ -267,6 +267,7 @@ function initScrollReveal() {
 
   revealElements.forEach(el => revealObserver.observe(el));
 }
+
 // --- MODULE 5: CONTACT FORM ---
 function initContactForm() {
     const contactForm = document.getElementById("portfolio-contact-form");
