@@ -1,328 +1,983 @@
 /* =====================================================================
-   PORTFOLIO JAVASCRIPT - OPTIMISÉ & MODULAIRE (8 PROJETS)
-   ==================================================================== */
+PORTFOLIO CSS - VERSION CORRIGÉE ET COMPLÈTE
+==================================================================== */
 
-// --- PROJECT DATA (1 à 8) ---
-const projectsData = {
-  "1": {
-    title: "Plateforme de Réservation — Géomancie Astrale",
-    category: "Application Web",
-    metric: "Vercel Deployment",
-    image: "images/geomancie.jpg",
-    desc1: "Application web interactive de consultation et de réservation en ligne, conçue et déployée pour une expérience utilisateur fluide et intuitive.",
-    desc2: "Mise en place d'une interface responsive et optimisée pour garantir des temps de chargement rapides et une accessibilité multiplateforme.",
-    skills: ["HTML/CSS/JS", "Vercel", "UI/UX", "Intégration Web"],
-    deliverables: ["Application web fonctionnelle", "Code source hébergé", "Responsive design"]
-  },
-  "2": {
-    title: "Landing Page — Méditation sur la vie",
-    category: "Landing Page / Code Web",
-    metric: "GitHub Pages",
-    image: "images/meditation.jpg",
-    desc1: "Landing page immersive dédiée au langage et à la méditation de l'homme, intégrant un design épuré, soigné et responsive.",
-    desc2: "Structure HTML/CSS propre optimisée pour le référencement naturel et un parcours utilisateur captivant.",
-    skills: ["HTML5", "CSS3", "GitHub Pages", "Responsive Design"],
-    deliverables: ["Landing page en ligne", "Design épuré", "Optimisation mobile"]
-  },
-  "3": {
-    title: "Campagne Instagram 12 Carousels — Vocal Coach Factory",
-    category: "Social Media & Multimédia",
-    metric: "HTML/CSS/JS",
-    image: "assets/slide1.jpg",
-    desc1: "Création d'une série de 12 carrousels HTML/CSS pour la promotion de la méthodologie ISPO avec une identité visuelle cohérente et percutante.",
-    desc2: "Design orienté conversion et engagement social pour maximiser l'interaction de la communauté sur Instagram.",
-    skills: ["Social Media", "Design Carrousel", "HTML/CSS", "Identité Visuelle"],
-    deliverables: ["Série de 12 visuels/slides", "Charte graphique", "Stratégie d'engagement"]
-  },
-  "4": {
-    title: "Production SEO Affiliate — Casinos Canada",
-    category: "Content SEO & Affiliate",
-    metric: "+50 articles",
-    image: "images/casinos.jpg",
-    desc1: "Rédaction et optimisation de plus de 50 articles long-format en français ciblant le marché québécois des jeux en ligne.",
-    desc2: "Recherche approfondie de mots-clés transactionnels, optimisation sémantique rigoureuse et intégration respectant les meilleurs standards SEO.",
-    skills: ["Rédaction SEO", "Affiliation", "Stratégie Sémantique", "Audit de mots-clés"],
-    deliverables: ["50+ articles optimisés", "Dossier Google Drive structuré", "Stratégie de mots-clés"]
-  },
-  "5": {
-    title: "Lancement de Plateforme & Architecture SEO — LEXAFRIQUE",
-    category: "SEO & Gestion de projet",
-    metric: "Indexation Rapide",
-    image: "images/lexafrique.jpg",
-    desc1: "Participation active à la mise en place du site internet et au lancement officiel de la structure Lexafrique avec une architecture optimisée.",
-    desc2: "Création et structuration d'une base de données ciblée de clients et partenaires, et alignement complet de la ligne éditoriale.",
-    skills: ["Architecture SEO", "Gestion de Projet", "Rédaction Institutionnelle", "Base de données"],
-    deliverables: ["Structure sémantique du site", "Contenus institutionnels", "Base de données structurée"]
-  },
-  "6": {
-    title: "Déploiement de la Communication Digitale — ROYAL ASSIST AFRICA",
-    category: "Content Management",
-    metric: "Visibilité B2B Accrue",
-    image: "images/royalassist.jpg",
-    desc1: "Élaboration et mise en œuvre globale des stratégies de communication pour valoriser l'image de marque et asseoir l'autorité B2B.",
-    desc2: "Création, diffusion et suivi de supports de communication multicanaux cohérents et gestion des relations partenaires.",
-    skills: ["Stratégie Éditoriale", "Content Management", "Relations Partenaires", "B2B"],
-    deliverables: ["Supports multicanaux", "Charte éditoriale B2B", "Plan de communication"]
-  },
-  "7": {
-    title: "Création de Formations & Dynamisation Sociale — LES MONDES DE L'INVISIBLE",
-    category: "Rédaction & Multimédia",
-    metric: "Forte Rétention & Engagement",
-    image: "images/mondesinvisible.jpg",
-    desc1: "Rédaction approfondie de formations et animation stratégique des réseaux sociaux (Instagram et Facebook) pour créer une communauté engagée.",
-    desc2: "Conception de visuels percutants et montage vidéo calibré pour maximiser l'interactivité et la mémorisation des contenus.",
-    skills: ["Rédaction Pédagogique", "Animation Social Media", "Montage Vidéo", "Création Visuelle"],
-    deliverables: ["Supports pédagogiques", "Calendrier éditorial", "Vidéos & Visuels"]
-  },
-  "8": {
-    title: "Campagne de Référencement Naturel — DJABOO",
-    category: "Expertise SEO",
-    metric: "Trafic Organique Durable",
-    image: "images/djaboo.jpg",
-    desc1: "Optimisation sémantique et campagnes de mots-clés ciblées pour la plateforme Djaboo afin de maximiser le trafic organique durable.",
-    desc2: "Rédaction d'articles optimisés à forte valeur ajoutée, amélioration technique de la structure du site et maillage interne intelligent.",
-    skills: ["Optimisation Sémantique", "Recherche de Mots-clés", "Maillage Interne", "Veille Algorithmique"],
-    deliverables: ["Articles de blog SEO", "Audit de mots-clés", "Rapport de maillage"]
-  }
-};
+/* -----------------------------
+1. VARIABLES ET RESET
+----------------------------- */
 
-// --- MAIN INITIALIZATION ---
-document.addEventListener("DOMContentLoaded", () => {
-  initNavigation();
-  initProjects();
-  initSkillsAnimation();
-  initContactForm();
-  initScrollReveal();
-});
-
-// --- MODULE 1: NAVIGATION ---
-function initNavigation() {
-  const menuToggle = document.getElementById("mobile-menu-toggle");
-  const navMenu = document.getElementById("nav-menu");
-  const navLinks = document.querySelectorAll(".nav-links a");
-  const sections = document.querySelectorAll("section");
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-      menuToggle.classList.toggle("active");
-      navMenu.classList.toggle("active");
-    });
-
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        menuToggle.classList.remove("active");
-        navMenu.classList.remove("active");
-      });
-    });
-  }
-
-  const observerOptions = {
-    root: null,
-    rootMargin: "-20% 0px -60% 0px",
-    threshold: 0
-  };
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const activeId = entry.target.getAttribute("id");
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${activeId}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  }, observerOptions);
-
-  sections.forEach(section => sectionObserver.observe(section));
+:root {
+  --bg: #0b1020;
+  --bg-soft: #11172b;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.1);
+  --text: #f8fafc;
+  --muted: rgba(248, 250, 252, 0.74);
+  --muted-soft: rgba(248, 250, 252, 0.55);
+  --primary: #8b5cf6;
+  --primary-2: #a78bfa;
+  --primary-soft: rgba(139, 92, 246, 0.14);
+  --white: #ffffff;
+  --radius: 20px;
+  --radius-sm: 14px;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+  --container: 1120px;
+  --header-height: 78px;
+  --transition: 0.3s ease;
 }
 
-// --- MODULE 2: PROJECTS MODAL ---
-function initProjects() {
-  const projectCards = document.querySelectorAll(".project-card");
-  const modal = document.getElementById("project-modal");
-  const modalCloseBtn = document.getElementById("modal-close-btn");
-
-  const modalImg = document.getElementById("modal-img");
-  const modalCategory = document.getElementById("modal-category");
-  const modalMetric = document.getElementById("modal-metric-badge");
-  const modalTitle = document.getElementById("modal-title-text");
-  const modalDescP1 = document.getElementById("modal-desc-p1");
-  const modalDescP2 = document.getElementById("modal-desc-p2");
-  const modalSkillsTags = document.getElementById("modal-skills-tags");
-  const modalDeliverablesTags = document.getElementById("modal-deliverables-tags");
-
-  const openModal = (projectId) => {
-    const data = projectsData[projectId];
-    if (!data) return;
-
-    modalImg.src = data.image;
-    modalImg.alt = data.title;
-    modalCategory.textContent = data.category;
-    modalMetric.textContent = data.metric;
-    modalTitle.textContent = data.title;
-    modalDescP1.textContent = data.desc1;
-    modalDescP2.textContent = data.desc2;
-
-    modalSkillsTags.innerHTML = "";
-    data.skills.forEach(skill => {
-      const tag = document.createElement("span");
-      tag.className = "modal-tag";
-      tag.textContent = skill;
-      modalSkillsTags.appendChild(tag);
-    });
-
-    modalDeliverablesTags.innerHTML = "";
-    data.deliverables.forEach(item => {
-      const tag = document.createElement("span");
-      tag.className = "modal-tag";
-      tag.textContent = item;
-      modalDeliverablesTags.appendChild(tag);
-    });
-
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    if (!modal) return;
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  };
-
-  projectCards.forEach(card => {
-    card.addEventListener("click", (e) => {
-        if (e.target.closest('.project-link')) {
-            return;
-        }
-        const projectId = card.getAttribute("data-project");
-        openModal(projectId);
-    });
-  });
-
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener("click", closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("active")) {
-        closeModal();
-      }
-    });
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-// --- MODULE 3: SKILLS ANIMATION ---
-function initSkillsAnimation() {
-  const skillsSection = document.getElementById("a-propos");
-  const skillsCards = document.querySelectorAll(".skill-card");
-
-  if (!skillsSection || skillsCards.length === 0) return;
-
-  const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        skillsCards.forEach((card, index) => {
-          const delay = index * 100;
-          setTimeout(() => {
-            card.classList.add("active");
-          }, delay);
-        });
-      }
-    });
-  }, { threshold: 0.5 });
-
-  skillsObserver.observe(skillsSection);
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-// --- MODULE 4: SCROLL REVEAL ANIMATIONS ---
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll(".scroll-reveal");
-
-  const revealObserverOptions = {
-    root: null,
-    rootMargin: "0px 0px -100px 0px",
-    threshold: 0.15
-  };
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, revealObserverOptions);
-
-  revealElements.forEach(el => revealObserver.observe(el));
+body {
+  font-family: "Segoe UI", "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.65;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.22), transparent 32%),
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 28%),
+    var(--bg);
+  overflow-x: hidden;
 }
 
-// --- MODULE 5: CONTACT FORM ---
-// Web3Forms gère nativement l'envoi via le formulaire HTML
-// Aucune logique JavaScript supplémentaire n'est nécessaire
-function initContactForm() {
-  // Le formulaire est configuré pour envoyer directement via Web3Forms
-  // Pas d'intervention JavaScript requise
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-console.log(
-  "%cPortfolio Précieux Trésor Tossou - Prêt pour GitHub !",
-  "font-size: 16px; font-weight: bold; color: #8b5cf6; margin: 10px 0;"
-);
-   
-/* --- CORRECTION DES GRILLES DE PROJETS ET SERVICES --- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+section {
+  padding: 96px 0;
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.container {
+  width: min(var(--container), 92%);
+  margin-inline: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.15;
+  font-weight: 800;
+  color: var(--white);
+}
+
+p {
+  color: var(--muted);
+}
+
+/* -----------------------------
+2. UTILITAIRES
+----------------------------- */
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-tag,
+.section-label {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  color: var(--primary-2);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.section-title,
+section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.9rem;
+}
+
+.section-subtitle,
+.section-header p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.btn,
+.button,
+button[type="submit"],
+.nav-cta a,
+.hero-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.9rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.btn-primary,
+button[type="submit"],
+.nav-cta a,
+.hero-actions a:first-child {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: var(--white);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25);
+}
+
+.btn-primary:hover,
+button[type="submit"]:hover,
+.nav-cta a:hover,
+.hero-actions a:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(139, 92, 246, 0.33);
+}
+
+.btn-outline,
+.hero-actions a:not(:first-child) {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.btn-outline:hover,
+.hero-actions a:not(:first-child):hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  transform: translateY(-2px);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -----------------------------
+3. HEADER / NAVIGATION
+----------------------------- */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(11, 16, 32, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header .container,
+.navbar,
+.nav-container {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo,
+.logo a {
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+#nav-menu,
+.nav-menu,
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.nav-links a,
+#nav-menu a,
+.nav-menu a {
+  color: var(--muted);
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+#nav-menu a:hover,
+#nav-menu a.active,
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--white);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+}
+
+#mobile-menu-toggle {
+  display: none;
+  min-height: 46px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* -----------------------------
+4. HERO / ACCUEIL
+----------------------------- */
+
+.hero,
+#accueil {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero .container,
+#accueil .container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-content,
+#accueil .container > div:first-child {
+  max-width: 720px;
+}
+
+.badge,
+.hero-badge,
+.availability-badge,
+.hero-content > p:first-child,
+#accueil .container > div:first-child > p:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  border: 1px solid rgba(139, 92, 246, 0.28);
+  color: #ddd6fe;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.hero h1,
+#accueil h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.08;
+  margin: 1rem 0 1.2rem;
+}
+
+.hero p,
+#accueil .hero-text,
+#accueil .container > div:first-child > p:not(:first-child) {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 650px;
+}
+
+.hero-actions,
+.hero-buttons,
+#accueil .container a:not(.nav-cta a) {
+  margin-top: 1rem;
+}
+
+.hero-actions,
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-image,
+#accueil .container > div:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img,
+#accueil img {
+  width: min(100%, 420px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.hero-stats,
+.stats,
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-stats span,
+.stats span,
+.hero-badges span {
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* -----------------------------
+5. À PROPOS / COMPÉTENCES
+----------------------------- */
+
+#a-propos {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+}
+
+#a-propos .container > p {
+  max-width: 800px;
+  margin-bottom: 1.2rem;
+  color: var(--muted);
+}
+
+.skills-grid,
+.skill-grid,
+#a-propos .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.skill-card {
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color var(--transition);
+}
+
+.skill-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.skill-card h3,
+.skill-card h4 {
+  margin-bottom: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.skill-card p {
+  color: var(--muted);
+}
+
+/* -----------------------------
+6. PROJETS
+----------------------------- */
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: var(--shadow);
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 0.45s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.06);
+}
+
+.project-card-content,
+.project-content,
+.project-card .content,
+.project-card .card-body {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.project-card > h2,
+.project-card > h3,
+.project-card > p,
+.project-card > span,
+.project-card > a {
+  margin-inline: 1.3rem;
+}
+
+.project-card > h2:first-of-type,
+.project-card > h3:first-of-type {
+  margin-top: 1.2rem;
+}
+
+.project-card > a:last-child {
+  margin-bottom: 1.3rem;
+}
+
+.project-category,
+.project-card .category,
+.project-card > span:first-of-type {
+  display: inline-flex;
+  width: max-content;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: #ddd6fe;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.project-card h3,
+.project-card .project-title,
+.project-card h2 {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-card p,
+.project-card .project-desc {
+  color: var(--muted);
+}
+
+.project-metric,
+.project-card .metric {
+  display: inline-flex;
+  width: max-content;
+  margin-top: 0.5rem;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.project-link {
+  margin-top: auto;
+  color: var(--primary-2);
+  font-weight: 800;
+}
+
+.project-link:hover {
+  color: var(--white);
+}
+
+/* -----------------------------
+7. SERVICES
+----------------------------- */
 
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
 }
 
-/* --- STABILISATION DES MODALS ET DU CONTACT --- */
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+.service-card,
+.services-grid > div,
+.services-grid article {
+  padding: 1.8rem;
+  min-height: 100%;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
-.modal.active {
-    opacity: 1;
-    visibility: visible;
+.service-card:hover,
+.services-grid > div:hover,
+.services-grid article:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow: var(--shadow);
 }
+
+.service-number {
+  display: inline-flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(139, 92, 246, 0.16);
+  border: 1px solid rgba(139, 92, 246, 0.24);
+  color: #ddd6fe;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.service-card h3,
+.services-grid h3 {
+  margin-bottom: 0.8rem;
+  font-size: 1.15rem;
+}
+
+.service-card p,
+.services-grid p {
+  color: var(--muted);
+}
+
+/* -----------------------------
+8. CONTACT
+----------------------------- */
 
 .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: start;
+  width: 100%;
+}
+
+.contact-info {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.contact-card,
+.contact-info > div,
+.contact-item {
+  padding: 1.3rem;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-card strong,
+.contact-info strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--white);
+}
+
+.contact-card a,
+.contact-info a {
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.contact-card a:hover,
+.contact-info a:hover {
+  color: var(--primary-2);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.95rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(248, 250, 252, 0.45);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.16);
+}
+
+/* -----------------------------
+9. MODALE PROJETS
+----------------------------- */
+
+.modal,
+#project-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: rgba(4, 6, 15, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active,
+#project-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  position: relative;
+  width: min(900px, 100%);
+  max-height: min(84vh, 900px);
+  overflow: auto;
+  background: var(--bg-soft);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.1rem;
+}
+
+#modal-close-btn,
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+#modal-close-btn:hover,
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.modal-content img,
+#modal-img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#modal-category,
+#modal-metric-badge,
+.modal-category,
+.modal-metric {
+  display: inline-flex;
+  width: max-content;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: #ddd6fe;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+#modal-title-text {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.15;
+}
+
+#modal-desc-p1,
+#modal-desc-p2 {
+  color: var(--muted);
+}
+
+#modal-skills-tags,
+#modal-deliverables-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.modal-tag {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* -----------------------------
+10. FOOTER
+----------------------------- */
+
+footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  color: rgba(248, 250, 252, 0.62);
+}
+
+/* -----------------------------
+11. RESPONSIVE
+----------------------------- */
+
+@media (max-width: 980px) {
+  .hero .container,
+  #accueil .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-content,
+  #accueil .container > div:first-child {
+    max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    align-items: start;
+    justify-items: center;
+  }
+
+  .hero-actions,
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-stats,
+  .stats,
+  .hero-badges {
+    justify-content: center;
+  }
+
+  .hero-image,
+  #accueil .container > div:last-child {
+    order: -1;
+  }
+}
+
+@media (max-width: 900px) {
+  #mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #nav-menu,
+  .nav-menu,
+  .nav-links {
+    position: fixed;
+    top: calc(var(--header-height) + 12px);
+    left: 1rem;
+    right: 1rem;
+    z-index: 950;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.4rem;
+    border-radius: 20px;
+    background: rgba(11, 16, 32, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+  }
+
+  #nav-menu.active,
+  .nav-menu.active,
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .nav-links a,
+  #nav-menu a,
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: 0.4rem 0;
+  }
+
+  .nav-cta {
+    width: 100%;
+  }
+
+  .nav-cta a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 72px 0;
+  }
+
+  .modal-content {
+    padding: 1.2rem;
+  }
+
+  .modal-content img,
+  #modal-img {
+    max-height: 230px;
+  }
+
+  .hero h1,
+  #accueil h1 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+  }
+
+  .hero-actions,
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero-actions a,
+  .hero-buttons a,
+  .btn,
+  .button {
+    width: 100%;
+  }
+}
+
+/* -----------------------------
+12. ACCESSIBILITÉ
+----------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(139, 92, 246, 0.65);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .skill-card {
+    opacity: 1;
+    transform: none;
+  }
 }
