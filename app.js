@@ -195,14 +195,17 @@ function initProjects() {
   };
 
   projectCards.forEach(card => {
-    card.addEventListener("click", (e) => {
-        if (e.target.closest('.project-link')) {
-            return;
-        }
-        const projectId = card.getAttribute("data-project");
-        openModal(projectId);
-    });
+  card.addEventListener("click", (e) => {
+    // Si on clique sur un vrai lien externe (projets 1 à 4), on ne fait rien
+    if (e.target.closest('.project-link') && !e.target.closest('.open-modal-btn')) {
+      return;
+    }
+
+    // Si on clique sur "Détails & Livrables" (projets 5 à 8) ou sur la carte, on ouvre la modale
+    const projectId = card.getAttribute("data-project");
+    openModal(projectId);
   });
+});
 
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener("click", closeModal);
