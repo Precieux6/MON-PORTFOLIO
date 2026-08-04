@@ -666,13 +666,12 @@ section {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 4rem;
-  align-items: start;
+  align-items: center; /* Aligne le formulaire et les infos sur le même axe vertical */
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .contact-info h3 {
@@ -955,26 +954,29 @@ textarea.form-input {
 footer {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-color);
-  padding: 3rem 0;
+  padding: 3.5rem 0;
   margin-top: 4rem;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: center;
+  gap: 1.5rem;
+  text-align: center;
 }
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .social-link {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: rgba(139, 92, 246, 0.1);
   border-radius: 50%;
   display: flex;
@@ -985,8 +987,8 @@ footer {
 }
 
 .social-link:hover {
-  background: rgba(139, 92, 246, 0.2);
-  transform: translateY(-2px);
+  background: rgba(139, 92, 246, 0.25);
+  transform: translateY(-3px);
 }
 
 .social-link svg {
@@ -997,6 +999,7 @@ footer {
 .footer-copy {
   color: var(--text-secondary);
   font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
@@ -1086,8 +1089,7 @@ footer {
   }
   
   .footer-content {
-    justify-content: center;
-    text-align: center;
+    gap: 1.25rem;
   }
 }
 
