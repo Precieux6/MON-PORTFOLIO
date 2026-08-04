@@ -154,43 +154,56 @@ function initProjects() {
   const modalSkillsTags = document.getElementById("modal-skills-tags");
   const modalDeliverablesTags = document.getElementById("modal-deliverables-tags");
 
+  const openModal = (projectId) => {
+    const data = projectsData[projectId];
+    if (!data) return;
+
+    modalImg.src = data.image;
+    modalImg.alt = data.title;
+    modalCategory.textContent = data.category;
+    modalMetric.textContent = data.metric;
+    modalTitle.textContent = data.title;
+    modalDescP1.textContent = data.desc1;
+    modalDescP2.textContent = data.desc2;
+
+    modalSkillsTags.innerHTML = "";
+    data.skills.forEach(skill => {
+      const tag = document.createElement("span");
+      tag.className = "modal-tag";
+      tag.textContent = skill;
+      modalSkillsTags.appendChild(tag);
+    });
+
+    modalDeliverablesTags.innerHTML = "";
+    data.deliverables.forEach(item => {
+      const tag = document.createElement("span");
+      tag.className = "modal-tag";
+      tag.textContent = item;
+      modalDeliverablesTags.appendChild(tag);
+    });
+
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+
   const closeModal = () => {
-    if (modal) modal.classList.remove("active");
+    if (!modal) return;
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
   };
 
-  const openModal = (card) => {
-    const projectId = card.getAttribute("data-project-id") || card.dataset.project;
-    const data = (typeof projectsData !== "undefined" && projectsData) ? projectsData[projectId] : null;
-
-    // Récupération et affichage de l'image
-    const cardImg = card.querySelector("img");
-    if (modalImg) {
-      if (data && data.image) {
-        modalImg.src = data.image;
-      } else if (cardImg) {
-        modalImg.src = cardImg.src;
-      }
-      modalImg.style.display = "block";
-    }
-
-    // Injection des textes si présents
-    if (data) {
-      if (modalCategory) modalCategory.textContent = data.category || "";
-      if (modalMetric) modalMetric.textContent = data.metric || "";
-      if (modalTitle) modalTitle.textContent = data.title || "";
-      if (modalDescP1) modalDescP1.textContent = data.descP1 || "";
-      if (modalDescP2) modalDescP2.textContent = data.descP2 || "";
-    }
-
-    if (modal) modal.classList.add("active");
-  };
-
-  // Écouteur sur TOUTES les cartes (y compris la rangée du bas)
-  projectCards.forEach((card) => {
-    card.addEventListener("click", () => openModal(card));
+  projectCards.forEach(card => {
+    card.addEventListener("click", (e) => {
+        if (e.target.closest('.project-link')) {
+            return;
+        }
+        const projectId = card.getAttribute("data-project");
+        openModal(projectId);
+    });
   });
 
-  // Gestion de la fermeture
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener("click", closeModal);
   }
@@ -201,14 +214,13 @@ function initProjects() {
         closeModal();
       }
     });
-  }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && modal.classList.contains("active")) {
-      closeModal();
-    }
-  });
-}
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+  }
 }
 
 // --- MODULE 3: SKILLS ANIMATION ---
