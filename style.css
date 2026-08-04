@@ -1197,3 +1197,131 @@ footer {
   flex-direction: column;
   gap: 0.75rem;
 }
+/* Grille globale des projets : 4 colonnes sur PC, adaptation responsive */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes par ligne sur PC */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Style de chaque carte individuelle */
+.project-card {
+  background: var(--card-bg, #121214);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* Conteneur de l'image au-dessus du projet */
+.project-image-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #1a1a1e;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Contenu textuel de la carte */
+.project-content {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.project-content h3 {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #ffffff;
+  margin: 0.25rem 0;
+}
+
+.project-content p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Pied de carte (technologies et liens) */
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.8rem;
+}
+
+.project-tech {
+  color: #6ee7b7;
+}
+
+.project-link {
+  color: #c084fc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Tablettes & Mobiles)
+   ========================================= */
+
+/* Tablettes : Passage de 4 à 2 colonnes */
+@media screen and (max-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobiles : Passage à 1 seule colonne pour un affichage vertical fluide */
+@media screen and (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+  
+  .project-image-wrapper {
+    height: 160px;
+  }
+}
