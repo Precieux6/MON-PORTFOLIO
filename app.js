@@ -195,11 +195,14 @@ function initProjects() {
   };
 
   projectCards.forEach(card => {
-    card.addEventListener("click", () => {
-      const projectId = card.getAttribute("data-project");
-      openModal(projectId);
+    card.addEventListener("click", (e) => {
+        if (e.target.closest('.project-link')) {
+            return;
+        }
+        const projectId = card.getAttribute("data-project");
+        openModal(projectId);
     });
-  });
+});
 
   if (modalCloseBtn) {
     modalCloseBtn.addEventListener("click", closeModal);
