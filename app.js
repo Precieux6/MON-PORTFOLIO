@@ -383,3 +383,7 @@ console.log(
   "4. Décommenter le code EmailJS dans initContactForm()",
   "color: #94a3b8; font-size: 12px;"
 );
+// Désactive l'ancien comportement bogué des modales de projets si nécessaire
+document.querySelectorAll('.project-card').forEach(card => {
+  card.style.cursor = 'default';
+});
