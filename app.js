@@ -9,7 +9,7 @@ const projectsData = {
     title: "Plateforme de Réservation — Géomancie Astrale",
     category: "Application Web",
     metric: "Vercel Deployment",
-    image: "assets/geomancie.png",
+    image: "assets/geomancie.jpg",
     desc1: "Application web interactive de consultation et de réservation en ligne, conçue et déployée pour une expérience utilisateur fluide et intuitive.",
     desc2: "Mise en place d'une interface responsive et optimisée pour garantir des temps de chargement rapides et une accessibilité multiplateforme.",
     skills: ["HTML/CSS/JS", "Vercel", "UI/UX", "Intégration Web"],
@@ -20,7 +20,7 @@ const projectsData = {
     title: "Landing Page — Méditation sur la vie",
     category: "Landing Page / Code Web",
     metric: "GitHub Pages",
-    image: "assets/meditation.png",
+    image: "assets/meditation.jpg",
     desc1: "Landing page immersive dédiée au langage et à la méditation de l'homme, intégrant un design épuré, soigné et responsive.",
     desc2: "Structure HTML/CSS propre optimisée pour le référencement naturel et un parcours utilisateur captivant.",
     skills: ["HTML5", "CSS3", "GitHub Pages", "Responsive Design"],
@@ -36,13 +36,13 @@ const projectsData = {
     desc2: "Design orienté conversion et engagement social pour maximiser l'interaction de la communauté sur Instagram.",
     skills: ["Social Media", "Design Carrousel", "HTML/CSS", "Identité Visuelle"],
     deliverables: ["Série de 12 visuels/slides", "Charte graphique", "Stratégie d'engagement"],
-    pdfLink: "assets/vocal-coach-factory.pdf" // PDF à charger
+    pdfLink: "assets/vocal-coach-factory-carrousel.pdf" // PDF à charger
   },
   "4": {
     title: "Production SEO Affiliate — Casinos Canada",
     category: "Content SEO & Affiliate",
     metric: "+50 articles",
-    image: "assets/casinos.png",
+    image: "assets/casinos.jpg",
     desc1: "Rédaction et optimisation de plus de 50 articles long-format en français ciblant le marché québécois des jeux en ligne.",
     desc2: "Recherche approfondie de mots-clés transactionnels, optimisation sémantique rigoureuse et intégration respectant les meilleurs standards SEO.",
     skills: ["Rédaction SEO", "Affiliation", "Stratégie Sémantique", "Audit de mots-clés"],
