@@ -93,7 +93,7 @@ const projectsData = {
     title: "Campagne Instagram — Académie du Spirituel",
     category: "Social Media & Esotérique",
     metric: "Contenu Holistique",
-    image: "assets/carrousel_fred.png",
+    image: "assets/carrousel_fred.jpg",
     desc1: "Création d'une série de visuels Instagram immersifs pour l'Académie du Spirituel, combinant des textes inspirants avec une identité visuelle ésotérique et mystique.",
     desc2: "Chaque carousel intègre des symboles sacrés, des géométries saintes et des philosophies de transformation personnelle pour une audience en quête de croissance spirituelle.",
     skills: ["Social Media Design", "Copywriting Spirituel", "Esotérique", "Branding Holistique"],
