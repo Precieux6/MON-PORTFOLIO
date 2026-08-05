@@ -9,50 +9,51 @@ const projectsData = {
     title: "Plateforme de Réservation — Géomancie Astrale",
     category: "Application Web",
     metric: "Vercel Deployment",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%238b5cf6' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EPlateforme de Réservation%3C/text%3E%3C/svg%3E",
+    image: "assets/geomancie.png",
     desc1: "Application web interactive de consultation et de réservation en ligne, conçue et déployée pour une expérience utilisateur fluide et intuitive.",
     desc2: "Mise en place d'une interface responsive et optimisée pour garantir des temps de chargement rapides et une accessibilité multiplateforme.",
     skills: ["HTML/CSS/JS", "Vercel", "UI/UX", "Intégration Web"],
     deliverables: ["Application web fonctionnelle", "Code source hébergé", "Responsive design"],
-    link: "https://geomancie-booking.vercel.app" // À remplacer par l'URL réelle
+    link: "https://reservation-sa-consultation.vercel.app/"
   },
   "2": {
     title: "Landing Page — Méditation sur la vie",
     category: "Landing Page / Code Web",
     metric: "GitHub Pages",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%233b82f6' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ELanding Page Méditation%3C/text%3E%3C/svg%3E",
+    image: "assets/meditation.png",
     desc1: "Landing page immersive dédiée au langage et à la méditation de l'homme, intégrant un design épuré, soigné et responsive.",
     desc2: "Structure HTML/CSS propre optimisée pour le référencement naturel et un parcours utilisateur captivant.",
     skills: ["HTML5", "CSS3", "GitHub Pages", "Responsive Design"],
     deliverables: ["Landing page en ligne", "Design épuré", "Optimisation mobile"],
-    link: "https://precieux6.github.io/meditation" // À remplacer par l'URL réelle
+    link: "https://precieux6.github.io/meditation-destin-homme/"
   },
   "3": {
     title: "Campagne Instagram 12 Carousels — Vocal Coach Factory",
     category: "Social Media & Multimédia",
     metric: "HTML/CSS/JS",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23d946ef' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ECarousels VCF%3C/text%3E%3C/svg%3E",
+    image: "assets/slide1.jpg",
     desc1: "Création d'une série de 12 carrousels HTML/CSS pour la promotion de la méthodologie ISPO avec une identité visuelle cohérente et percutante.",
     desc2: "Design orienté conversion et engagement social pour maximiser l'interaction de la communauté sur Instagram.",
     skills: ["Social Media", "Design Carrousel", "HTML/CSS", "Identité Visuelle"],
     deliverables: ["Série de 12 visuels/slides", "Charte graphique", "Stratégie d'engagement"],
-    pdfLink: "assets/VCF-12-Carousels.pdf" // PDF à charger
+    pdfLink: "assets/vocal-coach-factory.pdf" // PDF à charger
   },
   "4": {
     title: "Production SEO Affiliate — Casinos Canada",
     category: "Content SEO & Affiliate",
     metric: "+50 articles",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%2310b981' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EProd SEO Casinos%3C/text%3E%3C/svg%3E",
+    image: "assets/casinos.png",
     desc1: "Rédaction et optimisation de plus de 50 articles long-format en français ciblant le marché québécois des jeux en ligne.",
     desc2: "Recherche approfondie de mots-clés transactionnels, optimisation sémantique rigoureuse et intégration respectant les meilleurs standards SEO.",
     skills: ["Rédaction SEO", "Affiliation", "Stratégie Sémantique", "Audit de mots-clés"],
-    deliverables: ["50+ articles optimisés", "Dossier Google Drive structuré", "Stratégie de mots-clés"]
-  },
+    deliverables: ["50+ articles optimisés", "Dossier Google Drive structuré", "Stratégie de mots-clés"],
+     link: "https://drive.google.com/drive/folders/1PLFi-crpHZulVRq5938ymfeZh3WgmV2W?usp=drive_link"
+   },
   "5": {
     title: "Lancement de Plateforme & Architecture SEO — LEXAFRIQUE",
     category: "SEO & Gestion de projet",
     metric: "Indexation Rapide",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%238b5cf6' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ELexAfriques SEO%3C/text%3E%3C/svg%3E",
+    image: "assets/projet1_seo.jpg",
     desc1: "Participation active à la mise en place du site internet et au lancement officiel de la structure Lexafrique avec une architecture optimisée.",
     desc2: "Création et structuration d'une base de données ciblée de clients et partenaires, et alignement complet de la ligne éditoriale.",
     skills: ["Architecture SEO", "Gestion de Projet", "Rédaction Institutionnelle", "Base de données"],
@@ -62,7 +63,7 @@ const projectsData = {
     title: "Déploiement de la Communication Digitale — ROYAL ASSIST AFRICA",
     category: "Content Management",
     metric: "Visibilité B2B Accrue",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%233b82f6' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3ERoyal Assist B2B%3C/text%3E%3C/svg%3E",
+    image: "assets/projet3_copywriting.jpg",
     desc1: "Élaboration et mise en œuvre globale des stratégies de communication pour valoriser l'image de marque et asseoir l'autorité B2B.",
     desc2: "Création, diffusion et suivi de supports de communication multicanaux cohérents et gestion des relations partenaires.",
     skills: ["Stratégie Éditoriale", "Content Management", "Relations Partenaires", "B2B"],
@@ -72,7 +73,7 @@ const projectsData = {
     title: "Création de Formations & Dynamisation Sociale — LES MONDES DE L'INVISIBLE",
     category: "Rédaction & Multimédia",
     metric: "Forte Rétention & Engagement",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23d946ef' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EMondes Invisible%3C/text%3E%3C/svg%3E",
+    image: "assets/projet4_ebook.jpg",
     desc1: "Rédaction approfondie de formations et animation stratégique des réseaux sociaux (Instagram et Facebook) pour créer une communauté engagée.",
     desc2: "Conception de visuels percutants et montage vidéo calibré pour maximiser l'interactivité et la mémorisation des contenus.",
     skills: ["Rédaction Pédagogique", "Animation Social Media", "Montage Vidéo", "Création Visuelle"],
@@ -82,7 +83,7 @@ const projectsData = {
     title: "Campagne de Référencement Naturel — DJABOO",
     category: "Expertise SEO",
     metric: "Trafic Organique Durable",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%2310b981' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle'%3EDjaboo SEO%3C/text%3E%3C/svg%3E",
+    image: "assets/projet2_social.jpg",
     desc1: "Optimisation sémantique et campagnes de mots-clés ciblées pour la plateforme Djaboo afin de maximiser le trafic organique durable.",
     desc2: "Rédaction d'articles optimisés à forte valeur ajoutée, amélioration technique de la structure du site et maillage interne intelligent.",
     skills: ["Optimisation Sémantique", "Recherche de Mots-clés", "Maillage Interne", "Veille Algorithmique"],
@@ -92,12 +93,12 @@ const projectsData = {
     title: "Campagne Instagram — Académie du Spirituel",
     category: "Social Media & Esotérique",
     metric: "Contenu Holistique",
-    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23c084fc' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' font-size='24' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'%3EAcadémie du Spirituel%3C/text%3E%3C/svg%3E",
+    image: "assets/carrousel_fred.png",
     desc1: "Création d'une série de visuels Instagram immersifs pour l'Académie du Spirituel, combinant des textes inspirants avec une identité visuelle ésotérique et mystique.",
     desc2: "Chaque carousel intègre des symboles sacrés, des géométries saintes et des philosophies de transformation personnelle pour une audience en quête de croissance spirituelle.",
     skills: ["Social Media Design", "Copywriting Spirituel", "Esotérique", "Branding Holistique"],
     deliverables: ["Série de visuels Instagram", "Guide de méditation visuelle", "Livre blanc PDF"],
-    pdfLink: "assets/INGA-Academie-Spirituel.pdf" // PDF à charger
+    pdfLink: "assets/academie-spirituel-carrousel.pdf" // PDF à charger
   }
 };
 
